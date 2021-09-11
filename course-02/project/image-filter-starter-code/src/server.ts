@@ -23,7 +23,14 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
                 .send(`image_url is required`);
     }
 
-    let filteredImage = await filterImageFromURL(image_url).then().catch();
+    let filteredImage = await filterImageFromURL(image_url);
+
+    if (filteredImage = "error")
+    {
+      //No image was found to be filtered
+      return res.status(422)
+      .send("Image does not exist");
+    }
 
     //Set content-type for response
     res.setHeader("Content-Type","image/jpg");
