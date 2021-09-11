@@ -25,7 +25,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
     let filteredImage = await filterImageFromURL(image_url);
 
-    if (filteredImage = "error")
+    if (filteredImage === "error")
     {
       //No image was found to be filtered
       return res.status(422)
