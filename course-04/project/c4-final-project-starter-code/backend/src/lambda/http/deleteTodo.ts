@@ -15,7 +15,7 @@ export const handler = middy(
     const userId = getUserId(event)
     logger.info('deleteTodo userId', userId)
 
-    deleteTodo(todoId, userId)
+    await deleteTodo(todoId, userId)
     logger.info('Finished deleteTodo')
 
     return {
