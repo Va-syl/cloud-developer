@@ -13,13 +13,15 @@ export class TodosAccess {
 
   constructor(
     private readonly docClient: DocumentClient = createDynamoDBClient(),
-    private readonly todoTable = process.env.TODO_TABLE,
+    private readonly todoTable = process.env.TODOS_TABLE,
     private readonly index = process.env.TODOS_CREATED_AT_INDEX,
     ) {
   }
 
   async getTodosForUser(userId: string): Promise<TodoItem[]> {
-    logger.info('getTodosForUser', userId)
+    logger.info('getTodosForUser ' + userId)
+    logger.info('todoTable name ' + this.todoTable)
+    logger.info('index name ' + this.index)
 
     const result = await this.docClient.query({
         TableName: this.todoTable,

@@ -23,7 +23,7 @@ export async function createTodo(
 ): Promise<TodoItem> {
   logger.info("createTodo",createTodoRequest)
   const itemId = uuid.v4()
-  const bucketName = process.env.IMAGES_S3_BUCKET
+  const bucketName = process.env.ATTACHMENT_S3_BUCKET
 
   return await todoAccess.createTodo({
     userId: userId,

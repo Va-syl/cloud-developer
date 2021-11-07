@@ -13,7 +13,7 @@ export async function generateUploadUrl(todoId: string): Promise<string> {
     })
     logger.info("getting presignedUrl")
     const presignedUrl  = s3.getSignedUrl('putObject', {
-      Bucket: process.env.S3_BUCKET_NAME,
+      Bucket: process.env.ATTACHMENT_S3_BUCKET,
       Key: todoId,
       Expires: 5000
     })
