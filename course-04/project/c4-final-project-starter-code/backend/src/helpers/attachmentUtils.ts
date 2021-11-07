@@ -15,7 +15,7 @@ export async function generateUploadUrl(todoId: string): Promise<string> {
     const presignedUrl  = s3.getSignedUrl('putObject', {
       Bucket: process.env.S3_BUCKET_NAME,
       Key: todoId,
-      Expires: 3000
+      Expires: 5000
     })
     logger.info("retrieved presignedUrl", presignedUrl)
     return presignedUrl as string
